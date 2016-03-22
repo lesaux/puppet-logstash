@@ -44,6 +44,7 @@ class logstash::repo {
         key         => '46095ACC8548582C1A2699A9D27D666CD88E42B4',
         key_server  => 'pgp.mit.edu',
         include_src => false,
+        before      => Package['logstash'],
       }
     }
     'RedHat': {
@@ -53,6 +54,7 @@ class logstash::repo {
         gpgcheck => 1,
         gpgkey   => 'http://packages.elasticsearch.org/GPG-KEY-elasticsearch',
         enabled  => 1,
+        before      => Package['logstash'],
       }
     }
     'Suse' : {
@@ -80,6 +82,7 @@ class logstash::repo {
         gpgcheck    => 1,
         gpgkey      => "http://packages.elasticsearch.org/${gpg_key}",
         type        => 'yum',
+        before      => Package['logstash'],
       }
 
       # Workaround until zypprepo allows the adding of the keys
