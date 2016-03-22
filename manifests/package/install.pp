@@ -151,7 +151,7 @@ define logstash::package::install(
   if ($logstash::software_provider == 'package') {
 
     package { 'logstash':
-      name     => $name
+      name     => $name,
       ensure   => $package_ensure,
       source   => $pkg_source,
       provider => $pkg_provider
